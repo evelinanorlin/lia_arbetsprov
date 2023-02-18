@@ -11,16 +11,16 @@
                 <a ew-href="@menu">
                     @menu.Label
                 </a>
-                <span class="dropdown-arrow" ew-if="@menu.Children" aria-label="open submenu">
-                </span>
-                <ul class="submenu" ew-if="@menu.Children">
+                @* <span class="dropdown-arrow" ew-if="@menu.Children" aria-label="open submenu">
+                </span> *@
+                @* <ul class="submenu" ew-if="@menu.Children">
                     @foreach (var childNode in menu.Children)
                     {
                         <li ew-active-class="active" ew-active-for="@childNode">
                             <a ew-href="@childNode">@childNode.Label</a>
                         </li>
                     }
-                </ul>
+                </ul> *@
             </li>
         }
     </ul>

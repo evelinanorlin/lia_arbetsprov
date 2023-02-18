@@ -1,1 +1,25 @@
-﻿<ew-template />
+﻿<section class="content" id="content-page" ew-for-background-image="Image">
+  <div class="text-block" id="text-block">
+    <p ew-for="slogan"></p>
+    <h1>@Article.Label</h1>
+  </div>
+  <div class="pop-up hidden visually-hidden" id="popup">
+    <div class="pop-up-module">
+      <svg class="close-btn" id="close-btn" xmlns="http://www.w3.org/2000/svg" width="16.396" height="16.396" viewBox="0 0 16.396 16.396">
+        <g id="Group_1010" data-name="Group 1010" transform="translate(-905.281 -204.965)" opacity="0.7">
+          <path id="Path_488" data-name="Path 488" d="M3325.634-9249.682l15.689,15.689" transform="translate(-2420 9455)" fill="none" stroke="#000" stroke-width="1"/>
+          <path id="Path_489" data-name="Path 489" d="M3341.324-9249.682l-15.689,15.689" transform="translate(-2420 9455)" fill="none" stroke="#000" stroke-width="1"/>
+        </g>
+      </svg>
+      <div class="pop-up-content">
+        <h2 ew-for="logga-in"></h2>
+        <p ew-for="logga-in-desc"></p>
+        <form>
+          <input id="input" type="text" ew-for-placeholder="placeholder" required/>
+          <button id="log-in">Logga in</button>
+        </form>
+        <p class="small-text">Genom att logga in godkänner du <a href="">våra villkor</a></p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,317 @@
+$brandColorDark: #4B4B4B;
+$brandColorLight: #B0A17C;
+$accentColor: #ECECEE;
+$greyText: #4E5050;
+
+body{
+  margin: 0;
+  padding:0;
+  font-family: 'Lato', sans-serif;
+  }
+
+.burger-btn{
+  position: absolute;
+  z-index: 4;
+  right: 15px;
+  top: 15px;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+
+  .burger-line{
+      width: 60px;
+      height: 5px;
+      border-radius: 5px;
+      background: $brandColorLight;
+      transition: all .5s ease-in-out;
+
+      &::before,
+      &::after {
+          content: '';
+          position: absolute;
+          width: 60px;
+          height: 5px;
+          border-radius: 5px;
+          background: $brandColorLight;
+          transition: all .5s ease-in-out;
+          left: 0px;
+        }
+
+      &::before{
+          transform: translateY(-25px);
+      }
+
+      &::after{
+          transform: translateY(25px);
+      }
+  }
+}
+.open{
+  .burger-line{
+      transform: translateX(-50px);
+      background: transparent;
+      box-shadow: none;
+
+      &::before{
+        transform: rotate(45deg) translate(35px, -35px); 
+        box-shadow: none;
+      }
+
+      &::after{
+          transform: rotate(-45deg) translate(35px, 35px); 
+          box-shadow: none;
+      }
+  }
+}
+header{
+  display: block;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  height: 100vh;
+  top: -100vh;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: top 0.5s;
+
+  .background{
+    display:block;
+    height: 100%;
+    width: 100%;
+    background: rgb(171,171,171);
+    background: linear-gradient(90deg, rgba(171,171,171,0.4) 000%, rgba(0,0,0,0.4) 5%, rgba(0,0,0,0.4) 95%, rgba(171,171,171,0.4) 100%);
+  }
+
+
+  .inner{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    align-items: center;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .menu-left{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      nav{
+        ul{
+          list-style-type: none;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          padding: 0;
+          li{
+            margin-top: 50px;
+            a{
+              font-weight: 300;
+              text-decoration: none;
+              text-transform: uppercase;
+              color: $brandColorLight;
+              letter-spacing: 0.1rem;
+              padding-bottom:2px; /*the space for the gradient*/
+              background: linear-gradient($brandColorLight,$brandColorLight) center bottom; /*OR bottom right OR bottom left*/
+              background-size: 0% 1px; /*width:0% height:2px*/
+              background-repeat:no-repeat; /* Don't repeat !!*/
+              transition: all 0.45s;
+      
+              &:hover{
+                background-size: 100% 1px; /*width:100% height:2px*/
+              }
+            }
+          }
+        }
+      }
+    }
+    .menu-right{
+      .button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 28px;
+        width: 134px;
+        text-decoration: none;
+        font-family: 'Lato', sans-serif;
+        text-transform: uppercase;
+        color: black;
+        background: $brandColorLight;
+        border-radius: 20px;
+        margin-top: 50px;
+        transition: all 0.3s ease-in-out;
+  
+        &:hover{
+          background: $accentColor;
+          width: 141px;
+          height: 35px;
+        }
+      }
+      .greeting{
+        display: none;
+      }
+    }
+  }
+}
+
+.show-menu{
+  top: 0;
+}
+
+.content{
+  height: 100vh;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000000;
+    opacity: .5; 
+    height: 100vh;
+    }
+
+.text-block{
+  display: block;
+  max-width: 660px;
+  position: absolute;
+  z-index: 2;
+
+  h1, p{
+    color: #FFFFFF;
+  }
+
+  h1{
+    font-family: "bennet-banner", sans-serif;
+    font-weight: 300;
+    font-size: 3.43rem;
+    margin: 0;
+  }
+
+  p{
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+  }
+}
+  .pop-up{
+    display: block;
+    position: relative;
+    z-index: 4;
+    height: 100vh;
+    width: 100vw;
+    transition: all 1s;
+    backdrop-filter: blur(5px) saturate(300%) brightness(40%);
+    opacity: 1;
+
+    .pop-up-module{
+      position: absolute;
+      z-index: 6;
+      background: #ECECEE;
+      width: 341px;
+      height: 252px;
+      border-radius: 10px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+
+      .close-btn{
+        height: 15px;
+        width: 15px;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        cursor: pointer;
+        transition: all 0.3s linear;
+
+        &:hover{
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      .pop-up-content{
+        text-align: left;
+        color: $greyText;
+        width: 230px;
+        margin: 0 auto;
+        margin-top: 30px;
+
+        h2{
+          font-size: 1.25rem;
+          color: #000000;
+          margin-bottom: 0;
+        }
+        p{
+          margin-top: 12px;
+          margin-bottom: 24px;
+        }
+        input{
+          font-size: 1rem;
+          border: none;
+          height: 37px;
+          width: 213px;
+          border-radius: 5px;
+          padding-left: 15px;
+        }
+
+        button{
+          display: block;
+          height: 37px;
+          width: 230px;
+          background: $brandColorLight;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-family: 'Lato', sans-serif;
+          font-size: 1rem;
+          margin-top: 12px;
+          padding: 0;
+          cursor: pointer;
+          transition: background 0.3s ease-in-out;
+
+          &:hover{
+            background: $brandColorDark;
+          }
+        }
+        .small-text{
+          font-size: 0.56rem;
+          text-align: center;
+
+          a{
+            color: $greyText;
+          }
+        }
+      }
+    }
+  }
+  .hidden{
+    display: none;
+  }
+  .visually-hidden{
+    opacity: 0;
+  }
+}
+

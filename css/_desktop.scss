@@ -1,0 +1,52 @@
+@media screen and (min-width: 750px) {
+  .burger-btn{
+    display: none;
+  }
+  header{
+    display: block;
+    top: 0;
+    height: 66px;
+
+    .inner{
+      flex-direction: row;
+      justify-content: space-between;
+      top: 7px;
+      .menu-left{
+        flex-direction: row;
+        svg{
+          margin-right: 28px;
+        }
+        nav{
+          ul{
+            flex-direction: row;
+            li{
+              margin-top:0;
+              margin-right: 54px;
+            }
+          }
+        }
+      }
+      .menu-right{
+        margin: 0;
+        display: flex;
+        align-items: center;
+
+        .greeting{
+          display: block;
+          font-weight: 300;
+          font-size: 0.6rem;
+          text-transform: uppercase;
+          margin-right: 20px;
+          letter-spacing: 0.1rem;
+
+          span{
+            font-weight: 700;
+          }
+        }
+        .button{
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

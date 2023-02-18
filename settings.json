@@ -1,0 +1,8 @@
+{
+  "[fsharp]": {
+  "files.insertFinalNewline": false,
+  "editor.defaultFormatter": "Ionide.Ionide-fsharp",
+  "files.trimFinalNewlines": false,
+  "files.trimTrailingWhitespace": false
+}
+}
