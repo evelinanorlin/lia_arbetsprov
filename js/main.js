@@ -11,8 +11,16 @@ const header = document.getElementById('header');
 let loggedIn = false;
 let menuOpen = false;
 
+// check if there is an Array in local storage, otherwise create one
+let nameArray;
 let retrievedData = localStorage.getItem("nameArray");
-let nameArray = JSON.parse(retrievedData) || null;
+
+if(retrievedData){
+  nameArray = JSON.parse(retrievedData);
+} else{
+  nameArray = [];
+  localStorage.setItem("nameArray", JSON.stringify(nameArray));
+}
 
 // Open/close menu in mobile view
 burgerBtn.addEventListener('click', () => {
@@ -44,10 +52,8 @@ openLoginBtn.addEventListener('click', () => {
   }
 })
 
-
 // enable button when someting is written in input
 input.addEventListener('change', () => {
-  console.log("works")
   if (input.value === ""){
     loginBtn.disabled = true;
   } else{
@@ -73,17 +79,18 @@ loginBtn.addEventListener('click', () => {
   header.classList.remove('show-menu');
   burgerBtn.classList.remove('open');
   menuOpen = false;
+  loggedIn = true;
 
-  if(nameArray.includes(`${input.value}`)){
+  // let arraycontainsname = (nameArray.indexOf(input.value) > -1);
+
+  if(nameArray.includes(input.value)){
     greeting.innerHTML=`Välkommen tillbaka <span>${input.value}</span>`
   } else{
     greeting.innerHTML=`Du är inloggad som <span>${input.value}</span>`;
     nameArray.push(`${input.value}`);
     localStorage.setItem("nameArray", JSON.stringify(nameArray));
-
-    console.log(nameArray);
   }
 
-  input.value = "";
-  loggedIn = true;
-})
+  input.value="";
+}
+);
