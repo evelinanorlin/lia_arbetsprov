@@ -44,11 +44,23 @@ openLoginBtn.addEventListener('click', () => {
   }
 })
 
+
+// enable button when someting is written in input
+input.addEventListener('change', () => {
+  console.log("works")
+  if (input.value === ""){
+    loginBtn.disabled = true;
+  } else{
+    loginBtn.disabled = false;
+  }
+})
+
 // Closes the popup when clicking the close-button
 closePopup.addEventListener('click', () => {
   popup.classList.add('hidden');
   popup.classList.add('visually-hidden');
   textBlock.style.display = "block";
+  input.value = "";
 })
 
 // closing popup and displaying a greeting to the user, greeting depends on if
